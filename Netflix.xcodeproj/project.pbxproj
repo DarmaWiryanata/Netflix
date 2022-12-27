@@ -11,6 +11,7 @@
 		FA461796295B318D00A939E6 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA461795295B318D00A939E6 /* MainScreen.swift */; };
 		FA461798295B318E00A939E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA461797295B318E00A939E6 /* Assets.xcassets */; };
 		FA46179B295B318E00A939E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA46179A295B318E00A939E6 /* Preview Assets.xcassets */; };
+		FA4617A7295B484800A939E6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4617A6295B484800A939E6 /* NavigationBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FA461795295B318D00A939E6 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FA461797295B318E00A939E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA46179A295B318E00A939E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA4617A6295B484800A939E6 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		FA4617A2295B34CA00A939E6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA4617A6295B484800A939E6 /* NavigationBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				FA461796295B318D00A939E6 /* MainScreen.swift in Sources */,
 				FA461794295B318D00A939E6 /* NetflixApp.swift in Sources */,
+				FA4617A7295B484800A939E6 /* NavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
