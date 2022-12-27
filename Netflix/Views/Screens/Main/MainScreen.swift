@@ -12,13 +12,12 @@ struct MainScreen: View {
         NavigationView {
             ZStack(alignment: .top) {
                 ScrollView {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Hello, world!")
+                    // MARK: Featured movies
+                    FeaturedView()
                 }
                 .padding(.top, 60)
                 
+                // Navigation bar
                 NavigationBarView {
                     Text("NETFLIX")
                     
@@ -36,22 +35,5 @@ struct MainScreen: View {
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
         MainScreen()
-    }
-}
-
-struct NavigationBarView<Content: View>: View {
-    @ViewBuilder var content: Content
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "line.3.horizontal")
-            
-            content
-        }
-        .padding()
-        .background {
-            Rectangle()
-                .foregroundColor(.clear)
-        }
     }
 }
