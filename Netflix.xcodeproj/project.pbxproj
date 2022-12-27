@@ -15,6 +15,7 @@
 		FA4617A9295B48A300A939E6 /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4617A8295B48A300A939E6 /* FeaturedView.swift */; };
 		FA4A53B4295BB708002A4EEE /* LatestMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53B3295BB708002A4EEE /* LatestMoviesView.swift */; };
 		FA4A53B6295BB80F002A4EEE /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53B5295BB80F002A4EEE /* ContentHeaderView.swift */; };
+		FA4A53B8295BB929002A4EEE /* LatestMovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53B7295BB929002A4EEE /* LatestMovieCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FA4617A8295B48A300A939E6 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		FA4A53B3295BB708002A4EEE /* LatestMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMoviesView.swift; sourceTree = "<group>"; };
 		FA4A53B5295BB80F002A4EEE /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
+		FA4A53B7295BB929002A4EEE /* LatestMovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMovieCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				FA4617A6295B484800A939E6 /* NavigationBarView.swift */,
 				FA4A53B3295BB708002A4EEE /* LatestMoviesView.swift */,
 				FA4A53B5295BB80F002A4EEE /* ContentHeaderView.swift */,
+				FA4A53B7295BB929002A4EEE /* LatestMovieCellView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				FA461796295B318D00A939E6 /* MainScreen.swift in Sources */,
 				FA461794295B318D00A939E6 /* NetflixApp.swift in Sources */,
 				FA4A53B6295BB80F002A4EEE /* ContentHeaderView.swift in Sources */,
+				FA4A53B8295BB929002A4EEE /* LatestMovieCellView.swift in Sources */,
 				FA4617A7295B484800A939E6 /* NavigationBarView.swift in Sources */,
 				FA4A53B4295BB708002A4EEE /* LatestMoviesView.swift in Sources */,
 			);

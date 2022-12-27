@@ -15,17 +15,7 @@ struct LatestMoviesView: View {
                     .padding(.leading, 1)
                 
                 ForEach(0 ..< 5) { item in
-                    ZStack(alignment: .bottom) {
-                        RoundedRectangle(cornerRadius: 20)
-                            .frame(width: 150, height: 100)
-                            .foregroundColor(.gray)
-                            .overlay {
-                                Image(systemName: "house")
-                            }
-                        
-                        Text("Title")
-                            .padding([.bottom, .horizontal])
-                    }
+                    LatestMovieCellView()
                 }
                 
                 Spacer()
