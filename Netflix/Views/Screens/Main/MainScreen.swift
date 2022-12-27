@@ -17,7 +17,7 @@ struct MainScreen: View {
                     
                     // MARK: Latest movies
                     ContentHeaderView(title: "Latest")
-                    LatestView()
+                    LatestMoviesView()
                 }
                 .padding(.top, 60)
                 

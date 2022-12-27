@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LatestView: View {
+struct LatestMoviesView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
@@ -35,8 +35,8 @@ struct LatestView: View {
     }
 }
 
-struct LatestView_Previews: PreviewProvider {
+struct LatestMoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        LatestView()
+        LatestMoviesView()
     }
 }
