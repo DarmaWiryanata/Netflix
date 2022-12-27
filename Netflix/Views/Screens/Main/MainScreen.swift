@@ -14,6 +14,10 @@ struct MainScreen: View {
                 ScrollView {
                     // MARK: Featured movies
                     FeaturedView()
+                    
+                    // MARK: Latest movies
+                    ContentHeaderView(title: "Latest")
+                    LatestView()
                 }
                 .padding(.top, 60)
                 
