@@ -1,5 +1,5 @@
 //
-//  LatestMovieCellView.swift
+//  MovieGridCellView.swift
 //  Netflix
 //
 //  Created by Darma Wiryanata on 28/12/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LatestMovieCellView: View {
+struct SmallMovieCellView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             RoundedRectangle(cornerRadius: 20)
@@ -23,8 +23,8 @@ struct LatestMovieCellView: View {
     }
 }
 
-struct LatestMovieCellView_Previews: PreviewProvider {
+struct SmallGridCellView_Previews: PreviewProvider {
     static var previews: some View {
-        LatestMovieCellView()
+        SmallMovieCellView()
     }
 }

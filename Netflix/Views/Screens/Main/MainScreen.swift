@@ -17,7 +17,12 @@ struct MainScreen: View {
                     
                     // MARK: Latest movies
                     ContentHeaderView(title: "Latest")
-                    LatestMoviesView()
+                    MoviesListView(largeCell: false)
+                    
+                    // MARK: Action movies
+                    ContentHeaderView(title: "Action")
+                    MoviesListView(largeCell: true)
+                    
                 }
                 .padding(.top, 60)
                 

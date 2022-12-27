@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct LatestMoviesView: View {
+struct MoviesListView: View {
+    let largeCell: Bool
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
@@ -15,7 +17,11 @@ struct LatestMoviesView: View {
                     .padding(.leading, 1)
                 
                 ForEach(0 ..< 5) { item in
-                    LatestMovieCellView()
+                    if largeCell {
+                        LargeMovieCellView()
+                    } else {
+                        SmallMovieCellView()
+                    }
                 }
                 
                 Spacer()
@@ -27,6 +33,6 @@ struct LatestMoviesView: View {
 
 struct LatestMoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        LatestMoviesView()
+        MoviesListView(largeCell: true)
     }
 }
