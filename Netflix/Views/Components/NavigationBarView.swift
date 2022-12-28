@@ -19,7 +19,7 @@ struct NavigationBarView<Content: View>: View {
         .padding()
         .background {
             Rectangle()
-                .foregroundColor(.clear)
+                .foregroundColor(.gray.opacity(0.2))
         }
     }
 }

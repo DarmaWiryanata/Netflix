@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @State var showSearchField = false
+    @State var searchQuery = ""
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
                 ScrollView {
                     // MARK: Featured movies
                     FeaturedView()
+                        .padding(.top)
                     
                     // MARK: Latest movies
                     ContentHeaderView(title: "Latest")
@@ -22,18 +26,35 @@ struct MainScreen: View {
                     // MARK: Action movies
                     ContentHeaderView(title: "Action")
                     MoviesListView(largeCell: true)
+                        .padding(.bottom)
                     
                 }
-                .padding(.top, 60)
+                .padding(.top, 53)
                 
                 // Navigation bar
                 NavigationBarView {
-                    Text("NETFLIX")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "magnifyingglass")
+                    if showSearchField {
+                        TextField("Search", text: $searchQuery)
+                        
+                        Button {
+                            searchQuery = ""
+                            showSearchField = false
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                    } else {
+                        Text("NETFLIX")
+                        
+                        Spacer()
+                        
+                        Button {
+                            showSearchField = true
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                        }
+                    }
                 }
+                .animation(.linear, value: showSearchField)
             }
             
             .toolbar(.hidden)
