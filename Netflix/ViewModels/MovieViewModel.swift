@@ -11,10 +11,12 @@ import Foundation
 class MovieViewModel: ObservableObject {
     @Published var movies: [String:[Movie]] = [
         "latest": [],
-        "action": []
+        "action": [],
+        "discover": []
     ]
     @Published var isLoadingLatest = false
     @Published var isLoadingAction = false
+    @Published var isLoadingDiscover = false
     
     private var currentPage = 1
     private var cancellables = Set<AnyCancellable>()
@@ -22,6 +24,7 @@ class MovieViewModel: ObservableObject {
     init() {
         getActionMovies()
         getLatestMovies()
+        getDiscoverMovies()
     }
     
 //    func loadMoreContentIfNeeded(currentMovie movie: Movie?) {
@@ -44,6 +47,8 @@ class MovieViewModel: ObservableObject {
                 switch category {
                 case "latest":
                     self.isLoadingLatest = false
+                case "discover":
+                    self.isLoadingDiscover = false
                 default:
                     self.isLoadingAction = false
                 }
@@ -81,9 +86,19 @@ class MovieViewModel: ObservableObject {
         guard !isLoadingAction else { return }
         isLoadingAction = true
         
-        guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?sort_by=popularity.desc&with_genres=28&api_key=\(Config.tmdbApiKey)") else { return }
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?with_genres=28&api_key=\(Config.tmdbApiKey)") else { return }
         print(url)
         
         getMovies(url: url, category: "action", hasPagination: false)
+    }
+    
+    private func getDiscoverMovies() {
+        guard !isLoadingDiscover else { return }
+        isLoadingDiscover = true
+        
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?sort_by=popularity.desc&api_key=\(Config.tmdbApiKey)") else { return }
+        print(url)
+        
+        getMovies(url: url, category: "discover", hasPagination: false)
     }
 }

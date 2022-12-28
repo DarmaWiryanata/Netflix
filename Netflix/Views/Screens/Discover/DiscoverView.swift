@@ -13,8 +13,10 @@ struct DiscoverView: View {
     var body: some View {
         ScrollView {
             // MARK: Featured movies
-            FeaturedView()
-                .padding(.top)
+            if let discoverMovies = movieVM.movies["discover"] {
+                FeaturedView(movies: discoverMovies)
+                    .padding(.top)
+            }
             
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
