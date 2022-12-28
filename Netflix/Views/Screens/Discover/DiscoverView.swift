@@ -22,13 +22,13 @@ struct DiscoverView: View {
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
             if let latestMovies = movieVM.movies["latest"] {
-                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, largeCell: false, movies: latestMovies)
+                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, selectedMovie: $selectedMovie, largeCell: false, movies: latestMovies)
             }
             
             // MARK: Action movies
             ContentHeaderView(title: "Action")
             if let actionMovies = movieVM.movies["action"] {
-                MoviesListView(isLoadingPage: $movieVM.isLoadingAction, largeCell: true, movies: actionMovies)
+                MoviesListView(isLoadingPage: $movieVM.isLoadingAction, selectedMovie: $selectedMovie, largeCell: true, movies: actionMovies)
                     .padding(.bottom)
             }
         }

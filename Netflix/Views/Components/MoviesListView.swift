@@ -10,6 +10,8 @@ import SwiftUI
 struct MoviesListView: View {
     
     @Binding var isLoadingPage: Bool
+    @Binding var selectedMovie: Movie?
+    
     let largeCell: Bool
     var movies: [Movie]
     
@@ -24,10 +26,18 @@ struct MoviesListView: View {
                     
                     ForEach(movies) { movie in
                         if largeCell {
-                            LargeMovieCellView(movie: movie)
-                                .frame(width: 150)
+                            Button {
+                                selectedMovie = movie
+                            } label: {
+                                LargeMovieCellView(movie: movie)
+                                    .frame(width: 150)
+                            }
                         } else {
-                            SmallMovieCellView(movie: movie)
+                            Button {
+                                selectedMovie = movie
+                            } label: {
+                                SmallMovieCellView(movie: movie)
+                            }
                         }
                     }
                     
@@ -41,7 +51,7 @@ struct MoviesListView: View {
 
 struct LatestMoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesListView(isLoadingPage: .constant(false), largeCell: true, movies: [Movie(
+        MoviesListView(isLoadingPage: .constant(false), selectedMovie: .constant(nil), largeCell: true, movies: [Movie(
             id: 76600,
             adult: false,
             backdropPath: "/tQ91wWQJ2WRNDXwxuO7GCXX5VPC.jpg",

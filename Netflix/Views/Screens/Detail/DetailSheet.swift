@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailSheet: View {
+    @Binding var bindedSelectedMovie: Movie?
     @ObservedObject var movieVM: MovieViewModel
     @Environment(\.dismiss) private var dismiss
     
@@ -53,7 +54,7 @@ struct DetailSheet: View {
             // Movie recommendation
             ContentHeaderView(title: "Latest")
             if let latestMovies = movieVM.movies["latest"] {
-                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, largeCell: false, movies: latestMovies)
+                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, selectedMovie: $bindedSelectedMovie, largeCell: false, movies: latestMovies)
             }
             
             Spacer()
