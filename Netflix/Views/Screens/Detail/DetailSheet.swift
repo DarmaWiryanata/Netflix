@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailSheet: View {
     @Environment(\.dismiss) private var dismiss
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             // Close button
             HStack {
                 Spacer()
@@ -41,6 +41,7 @@ struct DetailSheet: View {
             
             // Video description
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in metus tellus.")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
             
             // Movie recommendation
