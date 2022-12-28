@@ -34,7 +34,7 @@ struct MainScreen: View {
         }
         .animation(.interactiveSpring(), value: showSearchField)
         .sheet(item: $selectedMovie) { movie in
-            DetailSheet()
+            DetailSheet(movieVM: movieVM, selectedMovie: movie)
         }
     }
 }

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct DetailSheet: View {
+    @ObservedObject var movieVM: MovieViewModel
     @Environment(\.dismiss) private var dismiss
+    
+    let selectedMovie: Movie
     
     var body: some View {
         VStack {
@@ -21,6 +24,7 @@ struct DetailSheet: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
+                        .foregroundColor(.primary)
                 }
             }
             .padding([.bottom, .horizontal])
@@ -31,7 +35,7 @@ struct DetailSheet: View {
             
             // Video title
             HStack() {
-                Text("Title")
+                Text(selectedMovie.title)
                     .font(.title3)
                     .bold()
                 
@@ -41,13 +45,16 @@ struct DetailSheet: View {
             .padding(.bottom, 4)
             
             // Video description
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in metus tellus.")
+            Text(selectedMovie.overview)
+                .font(.caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
             
             // Movie recommendation
             ContentHeaderView(title: "Latest")
-//            MoviesListView(largeCell: false)
+            if let latestMovies = movieVM.movies["latest"] {
+                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, largeCell: false, movies: latestMovies)
+            }
             
             Spacer()
         }
@@ -55,8 +62,8 @@ struct DetailSheet: View {
     }
 }
 
-struct DetailSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailSheet()
-    }
-}
+//struct DetailSheet_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailSheet(movieVM: MovieViewModel())
+//    }
+//}
