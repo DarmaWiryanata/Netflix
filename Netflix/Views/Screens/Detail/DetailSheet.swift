@@ -22,7 +22,7 @@ struct DetailSheet: View {
                         .font(.title)
                 }
             }
-            .padding(.bottom)
+            .padding([.bottom, .horizontal])
             
             // Embedded YouTube video
             Rectangle()
@@ -33,7 +33,7 @@ struct DetailSheet: View {
                         .foregroundColor(.white)
                 }
             
-            // Video title & description
+            // Video title
             HStack() {
                 Text("Title")
                     .font(.title3)
@@ -41,11 +41,12 @@ struct DetailSheet: View {
                 
                 Spacer()
             }
-            .padding(.top)
+            .padding([.top, .horizontal])
             .padding(.bottom, 4)
             
             // Video description
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in metus tellus.")
+                .padding(.horizontal)
             
             // Movie recommendation
             ContentHeaderView(title: "Latest")
@@ -53,7 +54,7 @@ struct DetailSheet: View {
             
             Spacer()
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 

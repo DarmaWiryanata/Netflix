@@ -13,6 +13,8 @@ struct MoviesListView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
+                Spacer()
+                    .padding(.leading, 1)
                 
                 ForEach(0 ..< 5) { item in
                     if largeCell {
