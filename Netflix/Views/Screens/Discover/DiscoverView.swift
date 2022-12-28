@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    @Binding var selectedMovie: Movie?
     @StateObject var movieVM: MovieViewModel
     
     var body: some View {
         ScrollView {
             // MARK: Featured movies
             if let discoverMovies = movieVM.movies["discover"] {
-                FeaturedView(movies: discoverMovies)
+                FeaturedView(selectedMovie: $selectedMovie, movies: discoverMovies)
                     .padding(.top)
             }
             
@@ -34,8 +35,8 @@ struct DiscoverView: View {
     }
 }
 
-struct DiscoverView_Previews: PreviewProvider {
-    static var previews: some View {
-        DiscoverView(movieVM: MovieViewModel())
-    }
-}
+//struct DiscoverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DiscoverView(movieVM: MovieViewModel())
+//    }
+//}

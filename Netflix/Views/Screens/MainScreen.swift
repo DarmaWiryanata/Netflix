@@ -11,7 +11,7 @@ struct MainScreen: View {
     
     @State var showSearchField = false
     @State var searchQuery = ""
-    @State var showDetailSheet = false
+    @State var selectedMovie: Movie?
     @StateObject var movieVM = MovieViewModel()
     
     var body: some View {
@@ -24,19 +24,16 @@ struct MainScreen: View {
                     SearchNavigationBar(showSearchField: $showSearchField, searchQuery: $searchQuery)
                 }
             } else {
-                DiscoverView(movieVM: movieVM)
+                DiscoverView(selectedMovie: $selectedMovie, movieVM: movieVM)
                     .padding(.top, 53)
                 
                 NavigationBarView {
                     DiscoverNavigationBar(showSearchField: $showSearchField)
                 }
-                .onTapGesture {
-                    showDetailSheet.toggle()
-                }
             }
         }
         .animation(.interactiveSpring(), value: showSearchField)
-        .sheet(isPresented: $showDetailSheet) {
+        .sheet(item: $selectedMovie) { movie in
             DetailSheet()
         }
     }
