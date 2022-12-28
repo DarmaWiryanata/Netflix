@@ -25,13 +25,8 @@ struct DetailSheet: View {
             .padding([.bottom, .horizontal])
             
             // Embedded YouTube video
-            Rectangle()
+            YouTubeVideoView(videoID: "5NjFuS_24v8")
                 .frame(height: 200)
-                .overlay {
-                    Image(systemName: "play.circle.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                }
             
             // Video title
             HStack() {
