@@ -25,8 +25,6 @@ struct SearchView: View {
         } else {
             ScrollView {
                 ContentHeaderView(title: "Search")
-                    .padding(.leading)
-                
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(0 ..< 5) { item in
                         LargeMovieCellView()

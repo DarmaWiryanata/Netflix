@@ -16,14 +16,10 @@ struct DiscoverView: View {
             
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
-                .padding(.leading)
-            
             MoviesListView(largeCell: false)
             
             // MARK: Action movies
             ContentHeaderView(title: "Action")
-                .padding(.leading)
-            
             MoviesListView(largeCell: true)
                 .padding(.bottom)
             
