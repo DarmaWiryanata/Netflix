@@ -19,26 +19,7 @@ struct MainScreen: View {
             // Navigation bar
             NavigationBarView {
                 if showSearchField {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .padding(.leading)
-                        
-                        TextField("Search", text: $searchQuery).modifier(TextFieldClearButton(text: $searchQuery))
-                            .padding(.vertical, 4)
-                            .padding(.trailing)
-                    }
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.white)
-                    }
-                    
-                    Button {
-                        searchQuery = ""
-                        showSearchField = false
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
-                    .padding(.vertical, 19)
+                    SearchNavigationBar(showSearchField: $showSearchField, searchQuery: $searchQuery)
                 } else {
                     DiscoverNavigationBar(showSearchField: $showSearchField)
                 }
