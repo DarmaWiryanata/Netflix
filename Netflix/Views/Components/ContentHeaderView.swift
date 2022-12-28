@@ -18,7 +18,7 @@ struct ContentHeaderView: View {
             
             Spacer()
         }
-        .padding([.top, .leading])
+        .padding(.top)
     }
 }
 
