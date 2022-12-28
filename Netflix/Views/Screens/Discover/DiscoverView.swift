@@ -18,13 +18,16 @@ struct DiscoverView: View {
             
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
-            MoviesListView(isLoadingPage: $movieVM.isLoadingPage, largeCell: false, movies: movieVM.latestMovies)
+            if let latestMovies = movieVM.movies["latest"] {
+                MoviesListView(isLoadingPage: $movieVM.isLoadingLatest, largeCell: false, movies: latestMovies)
+            }
             
             // MARK: Action movies
             ContentHeaderView(title: "Action")
-            MoviesListView(isLoadingPage: $movieVM.isLoadingPage, largeCell: true, movies: movieVM.latestMovies)
-                .padding(.bottom)
-            
+            if let actionMovies = movieVM.movies["action"] {
+                MoviesListView(isLoadingPage: $movieVM.isLoadingAction, largeCell: true, movies: actionMovies)
+                    .padding(.bottom)
+            }
         }
     }
 }

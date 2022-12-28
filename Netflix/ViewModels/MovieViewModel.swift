@@ -9,42 +9,51 @@ import Combine
 import Foundation
 
 class MovieViewModel: ObservableObject {
-    @Published var latestMovies = [Movie]()
-    @Published var isLoadingPage = false
+    @Published var movies: [String:[Movie]] = [
+        "latest": [],
+        "action": []
+    ]
+    @Published var isLoadingLatest = false
+    @Published var isLoadingAction = false
     
     private var currentPage = 1
     private var cancellables = Set<AnyCancellable>()
     
     init() {
+        getActionMovies()
         getLatestMovies()
     }
     
-    func loadMoreContentIfNeeded(currentMovie movie: Movie?) {
-        guard let movie = movie else {
-            getLatestMovies()
-            return
-        }
-
-        let thresholdIndex = latestMovies.index(latestMovies.endIndex, offsetBy: -5)
-        if latestMovies.firstIndex(where: { $0.id == movie.id }) == thresholdIndex {
-            getLatestMovies()
-        }
-    }
+//    func loadMoreContentIfNeeded(currentMovie movie: Movie?) {
+//        guard let movie = movie else {
+//            getLatestMovies()
+//            return
+//        }
+//
+//        let thresholdIndex = latestMovies.index(latestMovies.endIndex, offsetBy: -5)
+//        if latestMovies.firstIndex(where: { $0.id == movie.id }) == thresholdIndex {
+//            getLatestMovies()
+//        }
+//    }
     
-    private func getMovies(url: URL, hasPagination: Bool) {
+    private func getMovies(url: URL, category: String, hasPagination: Bool) {
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { response in
-                self.isLoadingPage = false
-                self.currentPage += 1
+                switch category {
+                case "latest":
+                    self.isLoadingLatest = false
+                default:
+                    self.isLoadingAction = false
+                }
             })
             .tryMap(handleOutput)
             .decode(type: MoviesResults.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { (completion) in
                 
             }, receiveValue: { [weak self] (results) in
-                self?.latestMovies.append(contentsOf: results.results)
+                self?.movies[category] = results.results
             })
             .store(in: &cancellables)
         
@@ -60,15 +69,21 @@ class MovieViewModel: ObservableObject {
     }
     
     private func getLatestMovies() {
-        guard !isLoadingPage else { return }
-        isLoadingPage = true
+        guard !isLoadingLatest else { return }
+        isLoadingLatest = true
         
-        guard let url = URL(string: "\(Config.tmdbBaseUrl)/movie/now_playing?&page=\(currentPage)&api_key=\(Config.tmdbApiKey)") else { return }
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/movie/now_playing?api_key=\(Config.tmdbApiKey)") else { return }
         
-        getMovies(url: url, hasPagination: false)
+        getMovies(url: url, category: "latest", hasPagination: false)
     }
     
     private func getActionMovies() {
+        guard !isLoadingAction else { return }
+        isLoadingAction = true
         
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?sort_by=popularity.desc&with_genres=28&api_key=\(Config.tmdbApiKey)") else { return }
+        print(url)
+        
+        getMovies(url: url, category: "action", hasPagination: false)
     }
 }

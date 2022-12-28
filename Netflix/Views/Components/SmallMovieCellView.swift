@@ -15,7 +15,6 @@ struct SmallMovieCellView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.gray)
                 .overlay {
-                    
                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.backdropPath)")!) { image in
                         image
                             .resizable()
