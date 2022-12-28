@@ -40,16 +40,7 @@ struct MainScreen: View {
                     }
                     .padding(.vertical, 19)
                 } else {
-                    Text("NETFLIX")
-                    
-                    Spacer()
-                    
-                    Button {
-                        showSearchField = true
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                    }
-                    .padding(.vertical, 17)
+                    DiscoverNavigationBar(showSearchField: $showSearchField)
                 }
             }
             .animation(.linear, value: showSearchField)
