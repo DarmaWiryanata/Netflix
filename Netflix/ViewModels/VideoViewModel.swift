@@ -28,7 +28,7 @@ class VideoViewModel: ObservableObject {
             .tryMap(handleOutput)
             .decode(type: VideosResults.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { (completion) in
-                
+
             }, receiveValue: { [weak self] (results) in
                 self?.movieVideos = results.results
             })

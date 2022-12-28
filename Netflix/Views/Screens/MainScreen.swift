@@ -13,6 +13,7 @@ struct MainScreen: View {
     @State var searchQuery = ""
     @State var selectedMovie: Movie?
     @StateObject var movieVM = MovieViewModel()
+    @StateObject var videoVM = VideoViewModel()
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -34,7 +35,7 @@ struct MainScreen: View {
         }
         .animation(.interactiveSpring(), value: showSearchField)
         .sheet(item: $selectedMovie) { movie in
-            DetailSheet(bindedSelectedMovie: $selectedMovie, movieVM: movieVM, selectedMovie: movie)
+            DetailSheet(bindedSelectedMovie: $selectedMovie, movieVM: movieVM, videoVM: videoVM, selectedMovie: movie)
         }
     }
 }

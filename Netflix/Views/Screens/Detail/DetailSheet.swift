@@ -10,9 +10,11 @@ import SwiftUI
 struct DetailSheet: View {
     @Binding var bindedSelectedMovie: Movie?
     @ObservedObject var movieVM: MovieViewModel
+    @ObservedObject var videoVM: VideoViewModel
     @Environment(\.dismiss) private var dismiss
     
     let selectedMovie: Movie
+    @State var abc = false
     
     var body: some View {
         VStack {
@@ -31,7 +33,7 @@ struct DetailSheet: View {
             .padding([.bottom, .horizontal])
             
             // Embedded YouTube video
-            YouTubeVideoView(videoID: "5NjFuS_24v8")
+            YouTubeVideoView(videoID: videoVM.movieVideos.first?.key ?? "abc")
                 .frame(height: 200)
             
             // Video title
@@ -60,6 +62,9 @@ struct DetailSheet: View {
             Spacer()
         }
         .padding(.vertical)
+        .onAppear {
+            videoVM.getVideos(id: selectedMovie.id)
+        }
     }
 }
 
