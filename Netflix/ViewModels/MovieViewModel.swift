@@ -31,13 +31,7 @@ class MovieViewModel: ObservableObject {
         }
     }
     
-    private func getLatestMovies() {
-        guard !isLoadingPage else { return }
-        isLoadingPage = true
-        
-        guard let url = URL(string: "\(Config.tmdbBaseUrl)/movie/now_playing?&page=\(currentPage)&api_key=\(Config.tmdbApiKey)") else { return }
-        print(url)
-
+    private func getMovies(url: URL, hasPagination: Bool) {
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -63,5 +57,18 @@ class MovieViewModel: ObservableObject {
             
             return output.data
         }
+    }
+    
+    private func getLatestMovies() {
+        guard !isLoadingPage else { return }
+        isLoadingPage = true
+        
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/movie/now_playing?&page=\(currentPage)&api_key=\(Config.tmdbApiKey)") else { return }
+        
+        getMovies(url: url, hasPagination: false)
+    }
+    
+    private func getActionMovies() {
+        
     }
 }

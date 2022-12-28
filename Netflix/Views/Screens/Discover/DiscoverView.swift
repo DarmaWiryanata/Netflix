@@ -18,11 +18,11 @@ struct DiscoverView: View {
             
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
-            MoviesListView(largeCell: false, movies: movieVM.latestMovies)
+            MoviesListView(isLoadingPage: $movieVM.isLoadingPage, largeCell: false, movies: movieVM.latestMovies)
             
             // MARK: Action movies
             ContentHeaderView(title: "Action")
-            MoviesListView(largeCell: true, movies: movieVM.latestMovies)
+            MoviesListView(isLoadingPage: $movieVM.isLoadingPage, largeCell: true, movies: movieVM.latestMovies)
                 .padding(.bottom)
             
         }

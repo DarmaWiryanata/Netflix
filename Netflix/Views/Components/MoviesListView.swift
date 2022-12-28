@@ -9,26 +9,31 @@ import SwiftUI
 
 struct MoviesListView: View {
     
+    @Binding var isLoadingPage: Bool
     let largeCell: Bool
     var movies: [Movie]
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                Spacer()
-                    .padding(.leading, 1)
-                
-                ForEach(movies) { movie in
-                    if largeCell {
-                        LargeMovieCellView()
-                            .frame(width: 150)
-                    } else {
-                        SmallMovieCellView(movie: movie)
+        if isLoadingPage {
+            ProgressView()
+        } else {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    Spacer()
+                        .padding(.leading, 1)
+                    
+                    ForEach(movies) { movie in
+                        if largeCell {
+                            LargeMovieCellView()
+                                .frame(width: 150)
+                        } else {
+                            SmallMovieCellView(movie: movie)
+                        }
                     }
+                    
+                    Spacer()
+                        .padding(.trailing, 1)
                 }
-                
-                Spacer()
-                    .padding(.trailing, 1)
             }
         }
     }
@@ -36,7 +41,7 @@ struct MoviesListView: View {
 
 struct LatestMoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesListView(largeCell: true, movies: [Movie(
+        MoviesListView(isLoadingPage: .constant(false), largeCell: true, movies: [Movie(
             id: 76600,
             adult: false,
             backdropPath: "/tQ91wWQJ2WRNDXwxuO7GCXX5VPC.jpg",
