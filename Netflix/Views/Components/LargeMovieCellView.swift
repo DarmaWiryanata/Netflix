@@ -11,7 +11,7 @@ struct LargeMovieCellView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 150, height: 200)
+                .frame(height: 200)
                 .foregroundColor(.gray)
                 .overlay {
                     Image(systemName: "photo")

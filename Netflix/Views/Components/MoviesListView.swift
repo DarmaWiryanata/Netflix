@@ -19,6 +19,7 @@ struct MoviesListView: View {
                 ForEach(0 ..< 5) { item in
                     if largeCell {
                         LargeMovieCellView()
+                            .frame(width: 150)
                     } else {
                         SmallMovieCellView()
                     }
