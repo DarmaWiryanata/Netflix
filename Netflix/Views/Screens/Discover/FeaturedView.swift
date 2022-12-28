@@ -22,14 +22,16 @@ struct FeaturedView: View {
                     HStack {
                         Rectangle()
                             .overlay {
-                                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath)")!) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .clipped()
-                                } placeholder: {
-                                    Text("Loading ...")
-                                        .redacted(reason: .placeholder)
+                                if let posterPath = movie.posterPath {
+                                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")!) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .clipped()
+                                    } placeholder: {
+                                        Text("Loading ...")
+                                            .redacted(reason: .placeholder)
+                                    }
                                 }
                             }
                             .padding(.trailing)

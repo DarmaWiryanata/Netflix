@@ -15,16 +15,18 @@ struct LargeMovieCellView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.gray)
                 .overlay {
-                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath)")!) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(height: 200)
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                    } placeholder: {
-                        Text("Loading ...")
-                            .redacted(reason: .placeholder)
+                    if let posterPath = movie.posterPath {
+                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")!) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: 200)
+                                .clipped()
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                        } placeholder: {
+                            Text("Loading ...")
+                                .redacted(reason: .placeholder)
+                        }
                     }
                 }
             

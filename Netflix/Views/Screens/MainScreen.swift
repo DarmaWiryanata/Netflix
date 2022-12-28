@@ -10,7 +10,6 @@ import SwiftUI
 struct MainScreen: View {
     
     @State var showSearchField = false
-    @State var searchQuery = ""
     @State var selectedMovie: Movie?
     @StateObject var movieVM = MovieViewModel()
     @StateObject var videoVM = VideoViewModel()
@@ -18,11 +17,11 @@ struct MainScreen: View {
     var body: some View {
         ZStack(alignment: .top) {
             if showSearchField {
-                SearchView(searchQuery: $searchQuery)
-                    .padding(.top, searchQuery == "" ? 53 : 0)
+                SearchView(searchQuery: $movieVM.searchQuery, selectedMovie: $selectedMovie, movieVM: movieVM)
+                    .padding(.top, movieVM.searchQuery == "" ? 53 : 0)
                 
                 NavigationBarView {
-                    SearchNavigationBar(showSearchField: $showSearchField, searchQuery: $searchQuery)
+                    SearchNavigationBar(showSearchField: $showSearchField, movieVM: movieVM)
                 }
             } else {
                 DiscoverView(selectedMovie: $selectedMovie, movieVM: movieVM)

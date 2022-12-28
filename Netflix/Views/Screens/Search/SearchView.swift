@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SearchView: View {
     @Binding var searchQuery: String
+    @Binding var selectedMovie: Movie?
+    @ObservedObject var movieVM: MovieViewModel
     
     let columns = [GridItem(), GridItem()]
     
@@ -26,18 +28,23 @@ struct SearchView: View {
             ScrollView {
                 ContentHeaderView(title: "Search")
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(0 ..< 5) { movie in
-//                        LargeMovieCellView(movie: movie)
+                    ForEach(movieVM.searchedMovies) { movie in
+                        Button {
+                            selectedMovie = movie
+                        } label: {
+                            LargeMovieCellView(movie: movie)
+                        }
                     }
                 }
                 .padding([.bottom, .horizontal])
             }
+            .padding(.top, 53)
         }
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(searchQuery: .constant(""))
+        SearchView(searchQuery: .constant(""), selectedMovie: .constant(nil), movieVM: MovieViewModel())
     }
 }

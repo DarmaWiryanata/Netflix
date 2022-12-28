@@ -14,9 +14,12 @@ class MovieViewModel: ObservableObject {
         "action": [],
         "discover": []
     ]
+    @Published var searchedMovies = [Movie]()
     @Published var isLoadingLatest = false
     @Published var isLoadingAction = false
     @Published var isLoadingDiscover = false
+    @Published var isLoadingSearched = false
+    @Published var searchQuery = ""
     
     private var currentPage = 1
     private var cancellables = Set<AnyCancellable>()
@@ -49,16 +52,23 @@ class MovieViewModel: ObservableObject {
                     self.isLoadingLatest = false
                 case "discover":
                     self.isLoadingDiscover = false
-                default:
+                case "action":
                     self.isLoadingAction = false
+                default:
+                    self.isLoadingSearched = false
                 }
             })
             .tryMap(handleOutput)
             .decode(type: MoviesResults.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { (completion) in
-                
+                print(completion)
             }, receiveValue: { [weak self] (results) in
-                self?.movies[category] = results.results
+                switch category {
+                case "search":
+                    self?.searchedMovies = results.results
+                default:
+                    self?.movies[category] = results.results
+                }
             })
             .store(in: &cancellables)
         
@@ -87,7 +97,6 @@ class MovieViewModel: ObservableObject {
         isLoadingAction = true
         
         guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?with_genres=28&api_key=\(Config.tmdbApiKey)") else { return }
-        print(url)
         
         getMovies(url: url, category: "action", hasPagination: false)
     }
@@ -97,8 +106,20 @@ class MovieViewModel: ObservableObject {
         isLoadingDiscover = true
         
         guard let url = URL(string: "\(Config.tmdbBaseUrl)/discover/movie?sort_by=popularity.desc&api_key=\(Config.tmdbApiKey)") else { return }
-        print(url)
         
         getMovies(url: url, category: "discover", hasPagination: false)
+    }
+    
+    func searchMovies() {
+        guard !isLoadingSearched else { return }
+        isLoadingSearched = true
+        
+        self.searchedMovies = []
+        
+        let newQuery = searchQuery.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        guard let url = URL(string: "\(Config.tmdbBaseUrl)/search/movie?query=\(newQuery)&api_key=\(Config.tmdbApiKey)") else { return }
+        print(url)
+        
+        getMovies(url: url, category: "search", hasPagination: false)
     }
 }
