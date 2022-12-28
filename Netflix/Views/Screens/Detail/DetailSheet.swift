@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailSheet: View {
     @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         VStack {
             // Close button
@@ -46,7 +47,7 @@ struct DetailSheet: View {
             
             // Movie recommendation
             ContentHeaderView(title: "Latest")
-            MoviesListView(largeCell: false)
+//            MoviesListView(largeCell: false)
             
             Spacer()
         }

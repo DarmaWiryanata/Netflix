@@ -12,6 +12,7 @@ struct MainScreen: View {
     @State var showSearchField = false
     @State var searchQuery = ""
     @State var showDetailSheet = false
+    @StateObject var movieVM = MovieViewModel()
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,7 +24,7 @@ struct MainScreen: View {
                     SearchNavigationBar(showSearchField: $showSearchField, searchQuery: $searchQuery)
                 }
             } else {
-                DiscoverView()
+                DiscoverView(movieVM: movieVM)
                     .padding(.top, 53)
                 
                 NavigationBarView {

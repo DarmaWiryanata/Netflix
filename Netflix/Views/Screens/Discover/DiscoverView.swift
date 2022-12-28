@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    @StateObject var movieVM: MovieViewModel
+    
     var body: some View {
         ScrollView {
             // MARK: Featured movies
@@ -16,11 +18,11 @@ struct DiscoverView: View {
             
             // MARK: Latest movies
             ContentHeaderView(title: "Latest")
-            MoviesListView(largeCell: false)
+            MoviesListView(largeCell: false, movies: movieVM.latestMovies)
             
             // MARK: Action movies
             ContentHeaderView(title: "Action")
-            MoviesListView(largeCell: true)
+            MoviesListView(largeCell: true, movies: movieVM.latestMovies)
                 .padding(.bottom)
             
         }
@@ -29,6 +31,6 @@ struct DiscoverView: View {
 
 struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverView()
+        DiscoverView(movieVM: MovieViewModel())
     }
 }

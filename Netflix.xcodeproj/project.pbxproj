@@ -27,6 +27,7 @@
 		FA4A53D0295BDEBC002A4EEE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53CF295BDEBC002A4EEE /* Movie.swift */; };
 		FA4A53D2295BDEC5002A4EEE /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53D1295BDEC5002A4EEE /* Video.swift */; };
 		FA4A53D6295BDF41002A4EEE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53D5295BDF41002A4EEE /* Config.swift */; };
+		FA4A53D8295BDFA4002A4EEE /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53D7295BDFA4002A4EEE /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		FA4A53CF295BDEBC002A4EEE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FA4A53D1295BDEC5002A4EEE /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		FA4A53D5295BDF41002A4EEE /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FA4A53D7295BDFA4002A4EEE /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		FA4A53D3295BDEF1002A4EEE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FA4A53D7295BDFA4002A4EEE /* MovieViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				FA4A53B6295BB80F002A4EEE /* ContentHeaderView.swift in Sources */,
 				FA4A53BE295BC43D002A4EEE /* TextFieldClearButton.swift in Sources */,
 				FA4A53D0295BDEBC002A4EEE /* Movie.swift in Sources */,
+				FA4A53D8295BDFA4002A4EEE /* MovieViewModel.swift in Sources */,
 				FA4A53BC295BBC04002A4EEE /* SmallMovieCellView.swift in Sources */,
 				FA4A53B8295BB929002A4EEE /* LargeMovieCellView.swift in Sources */,
 				FA4A53C3295BC70B002A4EEE /* DiscoverNavigationBar.swift in Sources */,
