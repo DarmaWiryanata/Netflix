@@ -28,8 +28,13 @@ struct SmallMovieCellView: View {
                     }
                 }
             
+            // Poster top gradient effect
+            LinearGradient(colors: [.black, .clear], startPoint: .bottom, endPoint: .center)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+            
             Text(movie.title)
                 .font(.callout)
+                .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
                 .padding([.bottom, .horizontal])
