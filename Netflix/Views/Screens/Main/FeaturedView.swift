@@ -12,8 +12,9 @@ struct FeaturedView: View {
         HStack {
             Rectangle()
                 .overlay {
-                    Image(systemName: "house")
-                        .foregroundColor(.red)
+                    Image(systemName: "photo")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
                 }
                 .padding(.trailing)
             

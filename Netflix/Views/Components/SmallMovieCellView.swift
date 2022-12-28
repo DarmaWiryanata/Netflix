@@ -14,7 +14,8 @@ struct SmallMovieCellView: View {
                 .frame(width: 150, height: 100)
                 .foregroundColor(.gray)
                 .overlay {
-                    Image(systemName: "house")
+                    Image(systemName: "photo")
+                        .font(.largeTitle)
                 }
             
             Text("Title")
