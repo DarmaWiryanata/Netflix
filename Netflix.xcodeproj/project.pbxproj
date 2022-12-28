@@ -17,6 +17,7 @@
 		FA4A53B6295BB80F002A4EEE /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53B5295BB80F002A4EEE /* ContentHeaderView.swift */; };
 		FA4A53B8295BB929002A4EEE /* LargeMovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53B7295BB929002A4EEE /* LargeMovieCellView.swift */; };
 		FA4A53BC295BBC04002A4EEE /* SmallMovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53BB295BBC04002A4EEE /* SmallMovieCellView.swift */; };
+		FA4A53BE295BC43D002A4EEE /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53BD295BC43D002A4EEE /* TextFieldClearButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		FA4A53B5295BB80F002A4EEE /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		FA4A53B7295BB929002A4EEE /* LargeMovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeMovieCellView.swift; sourceTree = "<group>"; };
 		FA4A53BB295BBC04002A4EEE /* SmallMovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallMovieCellView.swift; sourceTree = "<group>"; };
+		FA4A53BD295BC43D002A4EEE /* TextFieldClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				FA4617A3295B34D200A939E6 /* Screens */,
 				FA4617A2295B34CA00A939E6 /* Components */,
+				FA4A53BF295BC455002A4EEE /* Modifiers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +118,14 @@
 				FA4617A8295B48A300A939E6 /* FeaturedView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		FA4A53BF295BC455002A4EEE /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				FA4A53BD295BC43D002A4EEE /* TextFieldClearButton.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 				FA461796295B318D00A939E6 /* MainScreen.swift in Sources */,
 				FA461794295B318D00A939E6 /* NetflixApp.swift in Sources */,
 				FA4A53B6295BB80F002A4EEE /* ContentHeaderView.swift in Sources */,
+				FA4A53BE295BC43D002A4EEE /* TextFieldClearButton.swift in Sources */,
 				FA4A53BC295BBC04002A4EEE /* SmallMovieCellView.swift in Sources */,
 				FA4A53B8295BB929002A4EEE /* LargeMovieCellView.swift in Sources */,
 				FA4617A7295B484800A939E6 /* NavigationBarView.swift in Sources */,
