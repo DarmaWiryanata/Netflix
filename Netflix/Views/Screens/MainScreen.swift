@@ -8,24 +8,29 @@
 import SwiftUI
 
 struct MainScreen: View {
+    
     @State var showSearchField = false
     @State var searchQuery = ""
     
     var body: some View {
         ZStack(alignment: .top) {
-            DiscoverView()
-                .padding(.top, 53)
-            
-            // Navigation bar
-            NavigationBarView {
-                if showSearchField {
+            if showSearchField {
+                SearchView(searchQuery: $searchQuery)
+                    .padding(.top, searchQuery == "" ? 53 : 0)
+                
+                NavigationBarView {
                     SearchNavigationBar(showSearchField: $showSearchField, searchQuery: $searchQuery)
-                } else {
+                }
+            } else {
+                DiscoverView()
+                    .padding(.top, 53)
+                
+                NavigationBarView {
                     DiscoverNavigationBar(showSearchField: $showSearchField)
                 }
             }
-            .animation(.linear, value: showSearchField)
         }
+        .animation(.interactiveSpring(), value: showSearchField)
     }
 }
 

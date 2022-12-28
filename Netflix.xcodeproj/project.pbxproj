@@ -21,6 +21,7 @@
 		FA4A53C1295BC570002A4EEE /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53C0295BC570002A4EEE /* DiscoverView.swift */; };
 		FA4A53C3295BC70B002A4EEE /* DiscoverNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53C2295BC70B002A4EEE /* DiscoverNavigationBar.swift */; };
 		FA4A53C6295BC794002A4EEE /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53C5295BC794002A4EEE /* SearchNavigationBar.swift */; };
+		FA4A53C8295BCF54002A4EEE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A53C7295BCF54002A4EEE /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		FA4A53C0295BC570002A4EEE /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		FA4A53C2295BC70B002A4EEE /* DiscoverNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNavigationBar.swift; sourceTree = "<group>"; };
 		FA4A53C5295BC794002A4EEE /* SearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
+		FA4A53C7295BCF54002A4EEE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4A53C5295BC794002A4EEE /* SearchNavigationBar.swift */,
+				FA4A53C7295BCF54002A4EEE /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				FA4A53BC295BBC04002A4EEE /* SmallMovieCellView.swift in Sources */,
 				FA4A53B8295BB929002A4EEE /* LargeMovieCellView.swift in Sources */,
 				FA4A53C3295BC70B002A4EEE /* DiscoverNavigationBar.swift in Sources */,
+				FA4A53C8295BCF54002A4EEE /* SearchView.swift in Sources */,
 				FA4A53C1295BC570002A4EEE /* DiscoverView.swift in Sources */,
 				FA4617A7295B484800A939E6 /* NavigationBarView.swift in Sources */,
 				FA4A53C6295BC794002A4EEE /* SearchNavigationBar.swift in Sources */,
