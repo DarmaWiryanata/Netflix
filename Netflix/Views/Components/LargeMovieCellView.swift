@@ -28,7 +28,13 @@ struct LargeMovieCellView: View {
                     }
                 }
             
+            // Poster top gradient effect
+            LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .center)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+            
             Text(movie.title)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
                 .padding(.horizontal)
                 .padding(.top, 40)
         }
