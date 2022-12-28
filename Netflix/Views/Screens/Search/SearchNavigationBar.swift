@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchNavigationBar: View {
+    @FocusState private var isFocused: Bool
     @Binding var showSearchField: Bool
     @Binding var searchQuery: String
     
@@ -16,13 +17,18 @@ struct SearchNavigationBar: View {
             Image(systemName: "magnifyingglass")
                 .padding(.leading)
             
-            TextField("Search", text: $searchQuery).modifier(TextFieldClearButton(text: $searchQuery))
+            TextField("Search", text: $searchQuery)
+                .focused($isFocused)
+                .modifier(TextFieldClearButton(text: $searchQuery))
                 .padding(.vertical, 4)
                 .padding(.trailing)
         }
         .background {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
+        }
+        .onAppear {
+            isFocused = true
         }
         
         Button {
