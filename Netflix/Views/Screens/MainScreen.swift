@@ -11,6 +11,7 @@ struct MainScreen: View {
     
     @State var showSearchField = false
     @State var searchQuery = ""
+    @State var showDetailSheet = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -28,9 +29,15 @@ struct MainScreen: View {
                 NavigationBarView {
                     DiscoverNavigationBar(showSearchField: $showSearchField)
                 }
+                .onTapGesture {
+                    showDetailSheet.toggle()
+                }
             }
         }
         .animation(.interactiveSpring(), value: showSearchField)
+        .sheet(isPresented: $showDetailSheet) {
+            DetailSheet()
+        }
     }
 }
 
